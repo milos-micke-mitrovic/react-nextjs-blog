@@ -1,0 +1,32 @@
+{
+  "name": "nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.2",
+    "mongodb": "^3.6.4",
+    "next": "10.0.6",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-markdown": "^5.0.3",
+    "react-syntax-highlighter": "^15.4.3"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "react-next"
+  },
+  "author": "",
+  "license": "ISC"
+}
