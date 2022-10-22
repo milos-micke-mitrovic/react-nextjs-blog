@@ -1,17 +1,31 @@
+import Head from "next/head";
+
 import AllPosts from "../../components/posts/all-posts";
+import { getAllPosts } from "../../lib/posts-util";
 
-const AllPostsPage = () => {
-  const DUMMY_POSTS = [
-    {
-      slug: "getting-started-with-nextjs",
-      title: "Getting Started With NExtJs",
-      image: "getting-started-nextjs.png",
-      excerpt: "NextJs is React framework for production",
-      date: "2022-01-01",
-    },
-  ];
-
-  return <AllPosts posts={DUMMY_POSTS} />;
+const AllPostsPage = ({ posts }) => {
+  return (
+    <>
+      <Head>
+        <title>All Posts</title>
+        <meta
+          name="description"
+          content="A list of all programing-related tutorials and posts."
+        />
+      </Head>
+      <AllPosts posts={posts} />
+    </>
+  );
 };
+
+export function getStaticProps() {
+  const allPosts = getAllPosts();
+
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+}
 
 export default AllPostsPage;

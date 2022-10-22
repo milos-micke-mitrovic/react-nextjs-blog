@@ -11,17 +11,8 @@ import classes from "./post-content.module.css";
 SyntaxHighlighter.registerLanguage("js", js);
 SyntaxHighlighter.registerLanguage("css", css);
 
-const DUMMY_POSTS = {
-  slug: "getting-started-with-nextjs",
-  title: "Getting Started With NExtJs",
-  image: "getting-started-nextjs.png",
-  excerpt: "NextJs is React framework for production",
-  date: "2022-01-01",
-  content: "# This is a first post",
-};
-
 function PostContent({ post }) {
-  const imagePath = `/images/posts/${DUMMY_POSTS.slug}/${DUMMY_POSTS.image}`;
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
   const customRenderers = {
     // image(image) {
@@ -43,7 +34,7 @@ function PostContent({ post }) {
         return (
           <div className={classes.image}>
             <Image
-              src={`/images/posts/${DUMMY_POSTS.slug}/${image.url}`}
+              src={`/images/posts/${post.slug}/${image.url}`}
               alt={image.alt}
               width={600}
               height={300}
@@ -69,10 +60,8 @@ function PostContent({ post }) {
 
   return (
     <article className={classes.content}>
-      <PostHeader title={DUMMY_POSTS.title} image={imagePath} />
-      <ReactMarkdown renderers={customRenderers}>
-        {DUMMY_POSTS.content}
-      </ReactMarkdown>
+      <PostHeader title={post.title} image={imagePath} />
+      <ReactMarkdown renderers={customRenderers}>{post.content}</ReactMarkdown>
     </article>
   );
 }
